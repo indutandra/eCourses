@@ -156,8 +156,11 @@ def python():
 		# except:
 		# 	return redirect(url_for('Login'))
 		x="Lesson1.mp4"
-		return render_template('python.html',name=x)
+		return render_template('play.html',name=x)
 
+@app.route('/py_Lesson/1/1')
+def py_Lesson1():
+	return render_template('python.html')
 
 # @app.route('/python', methods=['GET', 'POST'])
 # def python():
