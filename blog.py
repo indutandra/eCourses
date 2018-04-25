@@ -8,9 +8,9 @@ import datetime
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'PRIYA'
+app.config['SECRET_KEY'] = 'eCourses'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blogDataBase.db'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','JPG','JPEG','mp4'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf','png', 'jpg', 'jpeg', 'gif','JPG','JPEG','mp4'])
 
 db=SQLAlchemy(app)
 
