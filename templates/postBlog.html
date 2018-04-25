@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="well">
+	<form action="{{ url_for('postBlog') }}" method="post" style = "background-color:lightblue">
+		
+		<center>
+			<br><br>
+			<textarea rows="5" cols="50" name="blog_Title" placeholder="Enter blog title here..."></textarea>
+			<br><br>
+			<textarea rows="10" cols="50" name="blog_Message" placeholder="Enter blog message here..."></textarea>
+			<br><br>
+			<input type="submit">
+			<br><br>
+		</center>
+	</form>
+</div>
+{% endblock %}

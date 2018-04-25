@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+	
+    {% if not session.logged_in %}
+    	<center><h1>Log in to learn the courses!!</h1></center>
+	{% else %}
+		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block">Click here to learn courses!</button></a>
+	{% endif %}
+
+	{% for blog in blogs_so_far %}
+		<div class="well" style = "color:lightblue">
+
+			    {% if session.logged_in %}
+
+			    <form action="{{ url_for('Main') }}" method="post">
+
+					<div class="col-md-1" style = "color:blue">>
+						<input type="radio" name="vote" value="{{blog.sno}} upvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote">
+						<br>
+						Votes: {{ blog.blog_likes }}
+						<br>
+						<input type="radio" name="vote" value="{{blog.sno}} downvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote" style="transform: rotate(180deg);">
+						<br>
+					</div>
+
+					<div class="col-md-1" style = "color:blue">>
+						<br><input type="submit" class="btn btn-primary">
+					</div>
+
+				</form>
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

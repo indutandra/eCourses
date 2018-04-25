@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Signup</h2>
+	{% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
+	<form action="{{ url_for('signup') }}" method="post" style = "background-color:lightblue">>
+		<center>
+			<dl>
+				<dt>Email id:</dt>
+		        <dd><input type="email" name="email" required></dd>
+		        <br>
+	            <dt>Name:</dt>
+		        <dd><input type="text" name="name" required></dd>
+	            <br>
+		        <dt>phone number:</dt>
+		        <dd><input type="text" name="phone" required></dd>
+		        <br>
+	            <dt>Password:</dt>
+		        <dd><input type="password" name="password" required></dd>
+		        <br>
+	            <dt>Re-enter password:</dt>
+		        <dd><input type="password" name="rePassword" required></dd>
+		        <br>
+		        <dd><input type="submit" value="Login"></dd>
+			</dl>
+		</center>
+		
+	</form>
+{% endblock %}

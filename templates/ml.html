@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="well">
+	<form action="{{ url_for('python') }}" method="post" style = "background-color:lightblue">
+		<div class="container">
+			<div class="row well">
+				<h1>START LESSON 1</h1>
+				<form>
+					<video width = "500" height = "300" controls>
+				         <source src = "/media/ubuntu/Local Disk/SocialComputing/ProjectTest/project/flaskr/flaskr/static/ml/Lesson1.mp4" type = "video/mp4">
+				         This browser doesn't support video tag.
+				      </video>
+      			</form>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row well">
+				<h1>START LESSON 2</h1>
+				<video width = "500" height = "300" controls>
+			         <source src = "/media/ubuntu/Local Disk/SocialComputing/ProjectTest/project/flaskr/flaskr/static/ml/Lesson2.mp4" type = "video/mp4">
+			         This browser doesn't support video tag.
+			      </video>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row well">
+				<h1>START LESSON 3</h1>
+				<video width = "500" height = "300" controls>
+			         <source src = "/media/ubuntu/Local Disk/SocialComputing/ProjectTest/project/flaskr/flaskr/static/ml/Lesson3.mp4" type = "video/mp4">
+			         This browser doesn't support video tag.
+			     </video>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row well">
+				<h1>START LESSON 4</h1>
+				<video width = "500" height = "300" controls>
+			        <source src = "/media/ubuntu/Local Disk/SocialComputing/ProjectTest/project/flaskr/flaskr/static/ml/Lesson4.mp4" type = "video/mp4">
+			         This browser doesn't support video tag.
+		        </video>
+			</div>
+		</div>
+
+		<center>
+			<br><br>
+			<textarea rows="5" cols="50" name="blog_Title" placeholder="Enter blog title here..."></textarea>
+			<br><br>
+			<textarea rows="10" cols="50" name="blog_Message" placeholder="Enter blog message here..."></textarea>
+			<br><br>
+			<input type="submit">
+			<br><br>
+		</center>
+	</form>
+</div>
+{% endblock %}
