@@ -1,28 +1,47 @@
 {% extends "layout.html" %}
 {% block body %}
-	<h2>Signup</h2>
-	{% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
-	<form action="{{ url_for('signup') }}" method="post" style = "background-color:lightblue">>
+
+	<!-- <h2 style="color:black ;margin-top:200px">Signup</h2> -->
+
+	<div class="w3-container w3-center w3-animate-zoom">
+  	  <img src="\static\images\signup.png" style="margin-top: 50px;margin-right:900px;height: 80px;margin-left: 190px">
+	</div>
+	 
+	{% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}</p>
+	<center>
+		<div >
+	<form action="{{ url_for('signup') }}" method="post" 
+	style = " 
+			 width:40%;
+			 color:black;
+			 margin-bottom:100px;
+			 margin-left:320px;
+			 border-radius:25px ;
+			 font-size: 20px">
+		
 		<center>
 			<dl>
 				<dt>Email id:</dt>
-		        <dd><input type="email" name="email" required></dd>
+		        <dd><input type="email" name="email" placeholder="example@gmail.com" style="font-size: 20px"></dd>
 		        <br>
 	            <dt>Name:</dt>
-		        <dd><input type="text" name="name" required></dd>
+		        <dd><input type="text" name="name" style="font-size: 20px"></dd>
 	            <br>
 		        <dt>phone number:</dt>
-		        <dd><input type="text" name="phone" required></dd>
+		        <dd><input type="text" name="phone" style="font-size: 20px" required></dd>
 		        <br>
 	            <dt>Password:</dt>
-		        <dd><input type="password" name="password" required></dd>
+		        <dd><input type="password" name="password" style="font-size: 20px" required></dd>
 		        <br>
 	            <dt>Re-enter password:</dt>
-		        <dd><input type="password" name="rePassword" required></dd>
+		        <dd><input type="password" name="rePassword" style="font-size: 20px" required></dd>
 		        <br>
-		        <dd><input type="submit" value="Login"></dd>
+		        
+		        <dd><input type="submit" value="Register" style="font-size: 20px" class="btn btn-info" style="background-color: cornflowerblue;border-radius:5px"></dd>
 			</dl>
 		</center>
 		
 	</form>
+	</div>
+</center>
 {% endblock %}

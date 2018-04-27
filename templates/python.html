@@ -1,50 +1,31 @@
-{% extends "Layout.html" %}
+{% extends "layout2.html" %}
 {% block body %}
 
 <!-- <div class="well"> -->
-	<!-- <form action="{{ url_for('python') }}" method="post" style = "background-color:lightblue">
+	<form action="{{ url_for('python') }}" method="post" style = "background-color:lightblue">
+		
+		{{% if path == "py_Lesson/1/1" %}}
 		<div class="col-md-4">
 
-		</div> -->
-		<!-- <div class="col-md-8"> -->
-			<!-- <div class="container"> -->
-				<!-- <div class="row well"> -->
-					<!-- <h1>START LESSON 1</h1> -->
-
-					<center>
-						<video width = "500" height = "300" controls="controls">
-				       		<source src={{ url_for('static', filename='Lesson1.mp4') }} type = "video/mp4"/></source>
-				        	This browser doesn't support video tag.
-				      	</video>
-				    </center>
-				</div>
-			</div>
+		</div>
+		<div class="col-md-8">
+			<center>
+				<video width = "500" height = "300" controls="controls">
+					<source src={{ url_for('static', filename=name) }} type = "video/mp4"/>
+					</source>
+				        This browser doesn't support video tag.
+				</video>
+			</center>
+		</div>
+		<div>
 			<center>
 				<br><br>
-				<button type="submit" value="share" > </button>
+				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
+					<img src="{{url_for('static',filename='index.png')}}">
+				</a>
 				<br><br>
-				<input type="submit">
 				<br><br>
 			</center>
-			<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2Fwww.example.com%2Ffoo.php%3Fthis%3Da%26join%3Dabc%26user454 ">Link text goes here</a>
-
-
-  <!-- Load Facebook SDK for JavaScript -->
-<!--   <div id="fb-root">elloooooooo</div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script> -->
-
-  <!-- Your share button code -->
-<!--   <div class="fb-share-button" 
-    data-href="http://localhost:4469/Layout.html" 
-    data-layout="button_count">
-  </div> -->
-		<!-- </form> -->
-	<!-- </div> -->
-<!-- </div> -->
+		</div>
+	</form>
 {% endblock %}

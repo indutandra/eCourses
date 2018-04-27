@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.css') }} />
+    <link rel="stylesheet" href="{{url_for('static', filename="css/style.css")}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/scripts/module.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../static/custom.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>PYTHON LESSONS</title>
+
+
+ <!--  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="1646425029-5eut8v9cih9itdbg7ierc84mke274ie1.apps.googleusercontent.com">
+  <link rel="stylesheet" href="width https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css ">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
+  
+    
+</head>
+<body>
+  <div id="throbber" style="display:none; min-height:80px;"></div>
+  <div id="noty-holder"></div>
+  <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container-fluid">
+          <div class="col-md-10 navbar-header">
+              <button type="button" class="col-sm-2 navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              
+          </div>
+        <!-- Top Menu Items -->
+          <ul class="nav navbar-right top-nav">
+              <li>
+
+              </li>
+           </ul>
+           {% if not session.logged_in %}
+           <ul class="nav navbar-nav navbar-right ">
+              <li><a href="/signup"><span class="glyphicon glyphicon-user" style="color: white;"></span> Sign Up</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in" style="color: white;"></span> Login</a></li>
+
+           </ul>
+           {% else %}
+           <div class="col-sm-10 col-md-12 navbar-brand" >
+                  <h4><a style="color: white" href="/python">Python</a></h4>
+              </div>
+           <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" style="color:white;margin-top: -40px" href="#">{{session.log_email}}
+                  <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li class="dropdown-list">
+                  <a href="/postBlog">Forums</a>
+                </li>
+
+                <li class="dropdown-list">
+                  <a href="/userdetails">Your details</a>
+                </li>
+
+                <li class="dropdown-list">
+                  <a href="/logout">Logout</a>
+                </li>
+
+                
+              </ul>
+            </li>
+        </ul>
+
+      {% endif %}
+      </div>
+    </nav>      
+
+      <div class="col-md-12">
+    {% block body %}
+    {% endblock %}
+    <br><br><br><br>
+    <br><br><br><br>
+  </div>
+</body>
+</html>
+        

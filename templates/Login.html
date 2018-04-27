@@ -2,20 +2,59 @@
 {% block body %}
 <br><br><br><br>
 <br><br><br><br>
-  <h2>Login</h2>
-  {% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
-  <form action="{{ url_for('Login') }}" method="post" style = "background-color:lightblue">>
+<div class="w3-container w3-center w3-animate-zoom">
+      <img src="\static\images\download.jpg" style="margin-top: 50px;margin-right:900px;height: 80px;margin-left: 190px">
+  </div>
+  
+  <center>
+  <div class="w3-container w3-center w3-animate-zoom">
+  <form action="{{ url_for('Login') }}" method="post" style = "
+       width:40%;
+       color:black;
+       margin-bottom:100px;
+       margin-left:320px;
+       border-radius:25px;
+       font-size: 20px">
     <center>
       <dl>
         <dt>Email ID:</dt>
-        <dd><input type="email" name="email"></dd>
+        <dd><input type="email" name="email" placeholder="example@gmail.com " style="font-size: 20px"></dd>
         <dt>Password:</dt>
-        <dd><input type="password" name="password"></dd>
+        <dd><input type="password" name="password" style="font-size: 20"></dd>
         <br>
-        <dd><input type="submit" value="Login"></dd>
+        <dd><input type="submit" value="Login" class="btn btn-info" style="background-color: cornflowerblue;border-radius:5px; font-size: 20px;" ></dd>
       </dl>
     </center>
   </form>
+</div>
+</center>
+
+  {% if error %}<p class="error" style="margin-top: -100px;margin-left: 10px"><strong>Error:</strong> {{ error }}{% endif %}
 <br><br><br><br>
 <br><br><br><br>
+      <dd><div><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></div></dd>
+  
+<!-- 
+<script type="text/javascript">
+function onSignIn(googleUser) {
+         // Useful data for your client-side scripts:
+         var profile = googleUser.getBasicProfile();
+         var name = profile.getName();
+         var mail = profile.getEmail();
+         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+         console.log('Full Name: ' + profile.getName());
+         console.log('Given Name: ' + profile.getGivenName());
+         console.log('Family Name: ' + profile.getFamilyName());
+         console.log("Image URL: " + profile.getImageUrl());
+         console.log("Email: " + profile.getEmail());
+
+         // The ID token you need to pass to your backend:
+         var id_token = googleUser.getAuthResponse().id_token;
+
+
+
+         console.log("ID Token: " + id_token);
+         window.location.href="/sign/"+name+"/"+mail;
+       };
+</script> -->
 {% endblock %}

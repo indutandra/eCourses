@@ -1,0 +1,31 @@
+{% extends "layout2.html" %}
+{% block body %}
+
+<!-- <div class="well"> -->
+	<form action="{{ url_for('wp') }}" method="post" style = "background-color:lightblue">
+		
+		{{% if path == "wp_Lesson/1/1" %}}
+		<div class="col-md-4">
+
+		</div>
+		<div class="col-md-8">
+			<center>
+				<video width = "500" height = "300" controls="controls">
+					<source src={{ url_for('static', filename=name) }} type = "video/mp4"/>
+					</source>
+				        This browser doesn't support video tag.
+				</video>
+			</center>
+		</div>
+		<div>
+			<center>
+				<br><br>
+				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
+					<img src="{{url_for('static',filename='index.png')}}">
+				</a>
+				<br><br>
+				<br><br>
+			</center>
+		</div>
+	</form>
+{% endblock %}

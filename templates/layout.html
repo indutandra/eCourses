@@ -1,76 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My blog</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.css') }} />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <!-- <link rel="stylesheet" type="text/css" href="../static/custom.css"> -->
-</head>
-<body 
-  style="background-color: lightblue; color= #FFFFFF; background-repeat: no-repeat; background-position: center; background-size: cover; width:100%; height: 100%; padding-bottom:300px; ">
+      <title>My blog</title>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:lightblue;">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+      <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css") }}">
+      <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.css') }} />
+      <link rel="stylesheet" href="{{url_for('static', filename="css/style.css")}}">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../static/custom.css">
+
+
+      <script src="/scripts/jquery.min.js"></script>
+      <script src="/scripts/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/scripts/jquery.cookie.min.js"></script>
+      <script type="text/javascript" src="/scripts/module.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+      <meta name="google-signin-scope" content="profile email">
+      <meta name="google-signin-client_id" content="1043370717486-d1u09qdnl197q5ne8hno04i5pf82tv2t.apps.googleusercontent.com">
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <link rel="stylesheet" href="widthhttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+      <style> 
+.you{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {background-color: white;}
+    to {background-color: orange;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {background-color: white;}
+    to {background-color: orange;}
+}
+</style>
+
+</head>
+<body style="background: linear-gradient(135deg, #f05a28 0%, #e80a89 100%);;  background-repeat: no-repeat; background-position: center; background-size: cover; width:100%; height: 100%; padding-bottom:300px; ">
+
+  
+<script>
+function onSignIn(googleUser) {
+         // Useful data for your client-side scripts:
+         var profile = googleUser.getBasicProfile();
+         var name = profile.getName();
+         var mail = profile.getEmail();
+         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+         console.log('Full Name: ' + profile.getName());
+         console.log('Given Name: ' + profile.getGivenName());
+         console.log('Family Name: ' + profile.getFamilyName());
+         console.log("Image URL: " + profile.getImageUrl());
+         console.log("Email: " + profile.getEmail());
+
+         // The ID token you need to pass to your backend:
+         var id_token = googleUser.getAuthResponse().id_token;
+
+
+
+         console.log("ID Token: " + id_token);
+         window.location.href="/sign/"+name+"/"+mail;
+       };
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white">
     <div class="container-fluid">
 
-      <div class="navbar-header">
-        <a class="navbar-brand" style="color: #F2F3F4;" href="/">UDACITY</a>
-      </div>
+      <!-- <div class="navbar-header"> -->
+        <a class="navbar-brand" style="color: black;background-color:lightcoral;border-radius: 10px;border:2px solid black ; font-size: 20px; margin-left: -350px" href="/"><marquee>ECOURSES</marquee></a>
+      <!-- </div> -->
 
       {% if not session.logged_in %}
 
-      <ul class="nav navbar-nav navbar-right">
+      <!-- <ul class="nav navbar-nav navbar-right"> -->
 
-        <li><a href="/signup"><span class="glyphicon glyphicon-user" style="color: white;"></span> Sign Up</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in" style="color: white;"></span> Login</a></li>
+        <a href="/signup"><span class="glyphicon glyphicon-user" style="color: white;"></span><strong><h2>SignUp</h2></strong></a>
+        <a href="/login"><span class="glyphicon glyphicon-log-in" style="color:white;"></span><b><h2>Login</h2></b></a>
 
-      </ul>
+      <!-- </ul> -->
 
       {% else %}
 
       <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-          	<a class="dropdown-toggle" data-toggle="dropdown" style="color:white;" href="#">{{session.log_email}}
-          		<span class="caret"></span>
-          	</a>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" style="color:black; font-size: 20px" href="#">{{session.log_email}}
+            
+              </a>
 
-            <ul class="dropdown-menu">
+              <ul class="dropdown-menu" style="font-size: 20px">
 
-              <li class="dropdown-list">
-              	<a href="/userdetails">Your details</a>
-              </li>
+                <li class="dropdown-list">
+                  <a href="/postBlog">Forums</a>
+                </li>
 
-              <li class="dropdown-list">
-              	<a href="/logout">Logout</a>
-              </li>
+                <li class="dropdown-list" style="font-size: 20px">
+                  <a href="/userdetails">Your details</a>
+                </li>
 
-            </ul>
-          </li>
-      </ul>
+                <li class="dropdown-list" style="font-size: 20px">
+                  <a href="/logout">Logout</a>
+                </li>
+
+                
+              </ul>
+            </li>
+        </ul>
 
       {% endif %}
-    </div>
+    <!-- </div> -->
   </nav>
 
   <br>
   <br>
   <br>
 
-  <div class="container well col-md-12">
-    {% block body %}
-    {% endblock %}
-    <br><br><br><br>
+  <div class="container" style="background: linear-gradient(135deg, #f05a28 0%, #e80a89 100%);";>
+          {% block body %}
+          {% endblock %}
+       <br><br><br><br>
     <br><br><br><br>
   </div>
 
+ 
+
+<!-- 
   <br>
   <br>
-  <br>
+  <br> -->
 
 </body>
 </html>

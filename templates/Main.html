@@ -2,13 +2,24 @@
 {% block body %}
 	
     {% if not session.logged_in %}
-    	<center><h1>Log in to learn the courses!!</h1></center>
+    	<img src="\static\images\Python.jpg" style="margin-left:40px;height:150px;margin-top:-80px">
+    	<img src="\static\images\java.jpg" style="margin-left:50px;height:150px;margin-top:220px">
+    	<img src="\static\images\learn.jpg" style="margin-left:600px;height:150px;">
+    	<img src="\static\images\web.jpg" style="margin-left:900px;height:150px;">
+    	<center><h1 style="background-repeat: no-repeat; background-position: center; background-size: cover; width:100%; height: 50%; padding-bottom:300px;margin-top:10px;color:black;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">Log in to learn the courses!!</h1></center>
+
 	{% else %}
-		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block">Click here to learn courses!</button></a>
+		<center>
+	   <img src="\static\images\logo.png" style="margin-top: 60px;height: 150px;" >
+		</center>
+	</div>
+	<center>
+		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:70px;width:30%; text-shadow: 2px 2px 5px red;">Click here to learn courses!</button></a>
+	</center>
 	{% endif %}
 
 	{% for blog in blogs_so_far %}
-		<div class="well" style = "color:lightblue">
+		<div class="well" >
 
 			    {% if session.logged_in %}
 

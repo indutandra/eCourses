@@ -147,20 +147,29 @@ def courses():
 
 @app.route('/python',methods=['POST','GET'])
 def python():
-	if request.method == 'POST':
-		# try:
-		# 	if session['logged_in']==True:
-		# 		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		# 		return render_template('python.html',customer=customer)
-		# 	return redirect(url_for('Login'))
-		# except:
-		# 	return redirect(url_for('Login'))
-		x="Lesson1.mp4"
-		return render_template('play.html',name=x)
+	try:
+		if session['logged_in']==True:
+			print "session entered"
+			customer = LoginDetails.query.filter_by(email=session['log_email']).one()
+			x="Lesson1.mp4"
+			c=4469
+			thispath = "python"
+			return render_template('play2.html')
+			# return render_template('python.html',customer=customer,name=x,port=c,path=thispath)
+		return redirect(url_for('Login'))
+	except:
+		print "session Not entered"
+		return redirect(url_for('Login'))
 
 @app.route('/py_Lesson/1/1')
 def py_Lesson1():
-	return render_template('python.html')
+	if session['logged_in']==True:
+		print "session entered"
+		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
+		x="Lesson1.mp4"
+		c=4469
+		thispath = "py_Lesson/1/1"
+		return render_template('python.html',customer=customer,name=x,port=c,path=thispath)
 
 # @app.route('/python', methods=['GET', 'POST'])
 # def python():
@@ -175,6 +184,8 @@ def py_Lesson1():
 # 	return render_template('postBlog.html')
 
 if __name__ == '__main__':
+	global c
+	c = 4469  
 	app.run(port=4469)
 
 
