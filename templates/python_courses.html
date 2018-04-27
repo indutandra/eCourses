@@ -1,10 +1,35 @@
 {% extends "layout2.html" %}
 {% block body %}   
+<style >
+    .table-bordered {
+    border: 1px solid black;
+    border-left-color: black;
+    border-right-color: black;
+    border-top-color: black;
+    border-bottom-color: black;
+}
+
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: linear-gradient(-90deg,lightpink,lightblue);
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid black;
+}
+hr {
+    border: 0;
+    border-top: 1px solid black;
+    margin: 20px 0;
+}
+</style>
+   <form action="{{ url_for('python') }}" method="post" style = "background:  linear-gradient(-90deg,lightpink,lightblue);margin: #ff80ff; border-radius: 5px;margin-top: 120px;margin-right:120px">
     
-    <div id="page-wrapper" >
-        <div class="container-fluid" >
-            <div class="row" id="main">
-                <div class="col-sm-12 col-md-12" id="content" >
+    <div id="page-wrapper" style="background-color: linear-gradient(-90deg,lightpink,lightblue)">
+        <div class="container-fluid" style="background-color: linear-gradient(-90deg,lightpink,lightblue)" >
+            <div class="row" id="main" style="background: linear-gradient(-90deg,lightpink,lightblue)">
+                <div class="col-sm-12 col-md-12" id="content" style="background-color: linear-gradient(-90deg,lightpink,lightblue)" >
                     <div>
                         <div>
                             <br><br><br><br><br><br>
@@ -18,10 +43,10 @@
                     </div><br>
                     <div class="row">
 
-                        <div class="col-sm-12 col-md-12">
+                        <div class="col-sm-12 col-md-12" >
                             <div class="col-md-8">
                                 <h3>List of Activities</h3><hr>
-                                <table class="table table-responsive table-hover table-bordered">
+                                <table class="table table-responsive table-hover table-bordered" >
                                     <thead>
                                       <tr>
                                         <th>Lesson No.</th>

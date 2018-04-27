@@ -2,46 +2,15 @@
 {% block body %}
 	
     {% if not session.logged_in %}
-<!--     	<img src="\static\images\python.jpg" style="margin-left:0px;height:150px;margin-top:-80px">
-    	<img src="\static\images\java.jpg" style="margin-left:50px;height:150px;margin-top:220px">
-    	<img src="\static\images\learn.jpg" style="margin-left:600px;height:150px;">
-    	<img src="\static\images\web.jpg" style="margin-left:900px;height:150px;"> -->
+    	<center>
+    	<img src="\static\images\main.jpg" style="height:400px; width:1000px ;margin-top: 50px">
+    	</center>
     	<br><br><br><br><br><br><br><br>
     	<center><h1 style="color:black;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">Log in to learn the courses!!</h1></center>
 
 	{% else %}
-	<!-- <center>
-	   <img src="\static\images\logo.png" style="margin-top: 60px;height: 150px;" >
-	</center> -->
-	<!-- </div> -->
 	<center>
-		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:70px;width:50%;font-size: 30px;">Click here to learn courses!</button></a>
+		<a href="/courses"><button type="button"  style="background-color:lightblue; margin-top:70px;width:50%;font-size: 30px;">Click here to learn courses!</button></a>
 	</center>
 	{% endif %}
-
-	<!-- {% for blog in blogs_so_far %}
-		<div class="well" >
-
-			    {% if session.logged_in %}
-
-			    <form action="{{ url_for('Main') }}" method="post">
-
-					<div class="col-md-1" style = "color:blue">>
-						<input type="radio" name="vote" value="{{blog.sno}} upvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote">
-						<br>
-						Votes: {{ blog.blog_likes }}
-						<br>
-						<input type="radio" name="vote" value="{{blog.sno}} downvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote" style="transform: rotate(180deg);">
-						<br>
-					</div>
-
-					<div class="col-md-1" style = "color:blue">>
-						<br><input type="submit" class="btn btn-primary">
-					</div>
-
-				</form>
-				{% endif %}
-			</div>
-		</div>
-	{% endfor %} -->
 {% endblock %}
