@@ -1,13 +1,10 @@
 {% extends "layout2.html" %}
 {% block body %}
 
-<!-- <div class="well"> -->
-	<form action="{{ url_for('wp') }}" method="post" style = "background-color:#fff2cc;margin: #ff80ff; border-radius: 5px;margin-top: 120px;margin-right:120px">
+	<form action="{{ url_for('wp') }}" method="post" style = "background:  linear-gradient(-90deg,lightpink,lightblue);margin: #ff80ff; border-radius: 5px;margin-top: 120px;margin-right:120px">
 		
 		{% if path == "wp_Lesson/1/13" %}
-		<!-- <div class="col-md-4">
-
-		</div> -->
+		
 		<div class="col-md-12">
 			<br>
 			<center>
@@ -22,25 +19,24 @@
 			<center>
 				<br><br>
 				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='gmail.png')}}" style="height:50px;width:40px;margin-left: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
+					<img src="{{url_for('static',filename='gshare.png')}}" style="height:30px;width:50px;">
 				</a>
-				<!-- </a> -->
-				<!-- https://www.facebook.com/sharer.php?u=http://127.0.0.1:7241/python -->
 				<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
+					<img src="{{url_for('static',filename='share.jpg')}}" style="height:30px;width:50px;">
 				</a>
 				<br><br>
 				<br><br>
 			</center>
+			<div>
+				<center>
+				<a href="/wp" style="margin-right:100px" class="previous">&laquo; Previous</a>
+				<a href="/wp_Lesson/1/14" style="margin-left:100px" class="next">Next &raquo;</a>
+				</center>
+			</div>
 		</div>
 		{% endif%}
 
 		{% if path == "wp_Lesson/1/14" %}
-		<!-- <div class="col-md-4">
-
-		</div> -->
 		<div class="col-md-12">
 			<br>
 			<center>
@@ -54,94 +50,23 @@
 		<div >
 			<center>
 				<br><br>
-				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='gmail.png')}}" style="height:50px;width:40px;margin-left: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
+				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2Fhttps://limitless-ridge-24700.herokuapp.com/{{port}}/{{path}}">
+					<img src="{{url_for('static',filename='gshare.png')}}" style="height:30px;width:50px;">
 				</a>
-				<!-- </a> -->
-				<!-- https://www.facebook.com/sharer.php?u=http://127.0.0.1:7241/python -->
-				<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
+				<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fhttps://limitless-ridge-24700.herokuapp.com/{{port}}/{{path}}">
+					<img src="{{url_for('static',filename='share.jpg')}}" style="height:30px;width:50px;">
 				</a>
 				<br><br>
 				<br><br>
 			</center>
+			<div>
+				<center>
+				<a href="/wp_Lesson/1/13" style="margin-right:100px" class="previous">&laquo; Previous</a>
+				<a href="/wp_Lesson/1/#" style="margin-left:100px" class="next">Next &raquo;</a>
+				</center>
+			</div>
 		</div>
 
-		{% endif%}
-
-		{% if path == "wp_Lesson/1/15" %}
-		<!-- <div class="col-md-4">
-
-		</div> -->
-		<div class="col-md-12">
-			<br>
-			<center>
-				<video width = "700" height = "500" controls="controls">
-					<source src={{ url_for('static', filename=name) }} type = "video/mp4"/>
-					</source>
-				        This browser doesn't support video tag.
-				</video>
-			</center>
-		</div>
-		<div >
-			<center>
-				<br><br>
-				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='gmail.png')}}" style="height:50px;width:40px;margin-left: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
-				</a>
-				<!-- </a> -->
-				<!-- https://www.facebook.com/sharer.php?u=http://127.0.0.1:7241/python -->
-				<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
-				</a>
-				<br><br>
-				<br><br>
-			</center>
-		</div>
-		{% endif%}
-		
-		{% if path == "wp_Lesson/1/16" %}
-		<!-- <div class="col-md-4">
-
-		</div> -->
-		<div class="col-md-12">
-			<br>
-			<center>
-				<video width = "700" height = "500" controls="controls">
-					<source src={{ url_for('static', filename=name) }} type = "video/mp4"/>
-					</source>
-				        This browser doesn't support video tag.
-				</video>
-			</center>
-		</div>
-		<div >
-			<center>
-				<br><br>
-				<a href="mailto:test@test.test?body=Link goes here http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='gmail.png')}}" style="height:50px;width:40px;margin-left: 500px">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
-				</a>
-				<!-- </a> -->
-				<!-- https://www.facebook.com/sharer.php?u=http://127.0.0.1:7241/python -->
-				<a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F127.0.0.1:{{port}}/{{path}}">
-					<img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right: 500pxx">
-					<!-- <img src="{{url_for('static',filename='index.png')}}" style="height:50px;width:40px;margin-right:500px"> -->
-				</a>
-				<br><br>
-				<br><br>
-			</center>
-		</div>
-
-		
-
-		{% else %}
-		<div>
-			<!-- wrong url -->
-		</div>
 		{% endif%}
 	</form>
 {% endblock %}

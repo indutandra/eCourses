@@ -237,27 +237,6 @@ def py_Lesson2():
 		thispath = "py_Lesson/1/2"
 		return render_template('python_videos.html',customer=customer,name=x,port=c,path=thispath)
 
-@app.route('/py_Lesson/1/3')
-def py_Lesson3():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson3.mp4"
-		c=5010
-		thispath = "py_Lesson/1/3"
-		return render_template('python_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-@app.route('/py_Lesson/1/4')
-def py_Lesson4():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson4.mp4"
-		c=5010
-		thispath = "py_Lesson/1/4"
-		return render_template('python_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-
 
 # 000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
@@ -297,25 +276,6 @@ def java_Lesson6():
 		thispath = "java_Lesson/1/6"
 		return render_template('java_videos.html',customer=customer,name=x,port=c,path=thispath)
 
-@app.route('/java_Lesson/1/7')
-def java_Lesson7():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson7.mp4"
-		c=5010
-		thispath = "java_Lesson/1/7"
-		return render_template('java_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-@app.route('/java_Lesson/1/8')
-def java_Lesson8():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson8.mp4"
-		c=5010
-		thispath = "java_Lesson/1/8"
-		return render_template('java_videos.html',customer=customer,name=x,port=c,path=thispath)
 
 # 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
@@ -355,26 +315,6 @@ def ml_Lesson10():
 		thispath = "ml_Lesson/1/10"
 		return render_template('ml_videos.html',customer=customer,name=x,port=c,path=thispath)
 
-@app.route('/ml_Lesson/1/11')
-def ml_Lesson7():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson11.mp4"
-		c=5010
-		thispath = "ml_Lesson/1/11"
-		return render_template('ml_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-@app.route('/ml_Lesson/1/12')
-def ml_Lesson12():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson12.mp4"
-		c=5010
-		thispath = "ml_Lesson/1/12"
-		return render_template('ml_videos.html',customer=customer,name=x,port=c,path=thispath)
-
 # 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 @app.route('/wp',methods=['POST','GET'])
@@ -412,28 +352,6 @@ def wp_Lesson14():
 		c=5010
 		thispath = "wp_Lesson/1/14"
 		return render_template('wp_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-
-@app.route('/wp_Lesson/1/15')
-def wp_Lesson15():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson15.mp4"
-		c=5010
-		thispath = "wp_Lesson/1/15"
-		return render_template('wp_videos.html',customer=customer,name=x,port=c,path=thispath)
-
-@app.route('/wp_Lesson/1/16')
-def wp_Lesson16():
-	if session['logged_in']==True:
-		print ("session entered")
-		customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-		x="Lesson16.mp4"
-		c=5010
-		thispath = "wp_Lesson/1/16"
-		return render_template('wp_videos.html',customer=customer,name=x,port=c,path=thispath)
-
 
 # 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 

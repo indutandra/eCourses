@@ -2,9 +2,9 @@
 {% block body %}
 <br><br><br><br>
 <br><br><br><br>
-<div class="w3-container w3-center w3-animate-zoom">
+<!-- <div class="w3-container w3-center w3-animate-zoom">
       <img src="\static\images\download.jpg" style="margin-top: 50px;margin-right:900px;height: 80px;margin-left: 190px">
-  </div>
+  </div> -->
   
   <center>
   <div class="w3-container w3-center w3-animate-zoom">
@@ -23,6 +23,7 @@
         <dd><input type="password" name="password" style="font-size: 20"></dd>
         <br>
         <dd><input type="submit" value="Login" class="btn btn-info" style="background-color: cornflowerblue;border-radius:5px; font-size: 20px;" ></dd>
+        <dd><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></dd>
       </dl>
     </center>
   </form>
@@ -30,9 +31,8 @@
 </center>
 
   {% if error %}<p class="error" style="margin-top: -100px;margin-left: 10px"><strong>Error:</strong> {{ error }}{% endif %}
-<br><br><br><br>
-<br><br><br><br>
-      <dd><div><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></div></dd>
+<br><br>
+      
   
 <!-- 
 <script type="text/javascript">
