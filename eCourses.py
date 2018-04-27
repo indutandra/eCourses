@@ -72,7 +72,7 @@ def postBlog():
 		blog_Title = request.form['blog_Title']
 		blog_Message = request.form['blog_Message']
 		blog_by = LoginDetails.query.filter_by(email=session['log_email']).all()[0].name
-		print blog_by
+		print (blog_by)
 		new_blog = blogsDB(blog_postedBy = blog_by,blog_postedAt=datetime.now(), blog_Title = blog_Title, blog_Message = blog_Message, blog_likes = 0)
 		db.session.add(new_blog)
 		db.session.commit()
@@ -113,15 +113,15 @@ def Main():
 @app.route('/sign/<name>/<mail>')
 def sign(name,mail):
 	# blogs_so_far = reversed(blogsDB.query.all())
-	print "entered"
-	print name 
-	print mail
+	print ("entered")
+	print (name) 
+	print (mail)
 	stmt = "SELECT email FROM accounts"
 	data = db.engine.execute(stmt).fetchall()
 	for x in data:
-		print x.email
+		print (x.email)
 		if mail != x.email	:
-			print "mail not in data and session True"
+			print ("mail not in data and session True")
 			newUser = LoginDetails(email=mail,name=name,password=None,phone=None)
 			db.session.add(newUser)
 			db.session.commit()
@@ -184,7 +184,7 @@ def signup():
 def userdetails():
 	# try:
 		if session['logged_in']==True:
-			print "session logged_in"
+			print ("session logged_in")
 			customer = LoginDetails.query.filter_by(email=session['log_email']).one()
 		return render_template('userdetails.html',customer=customer)
 		# return redirect(url_for('Login'))
