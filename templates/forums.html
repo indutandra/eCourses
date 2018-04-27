@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    {% if not session.logged_in %}
+    	<h2  style = "background-color:gray;font-size: 10px;">Log in to post your own blog</h2>
+	{% else %}
+		<a href="/postBlog"><button style="font-size: 10px;" type="button" class="btn btn-primary btn-lg btn-block">Click here to Post new blog!</button></a>
+	{% endif %}
+
+	{% for blog in blogs_so_far %}
+		<div class="well" style = "color:lightgreen; font-size: 10px;">
+		    <div class="row" style = "color:blue">
+				<div class="col-md-10"  style = "color:blue ;font-size: 10px;">
+					Posted by:
+					{{ blog.blog_postedBy }}
+				</div>
+				<div class="col-md-2">
+					{{ blog.blog_postedAt }}
+				</div>
+		    </div>
+			<br>
+		    <div class="row" style = "color:lightgreen;font-size: 10px;">
+
+				<div class="col-md-10" style = "color:blue; font-size: 10px;">
+					Title:<br>
+					{{ blog.blog_Title }}
+				</div>
+
+				<div class="col-md-10" style = "color:blue;font-size: 10px;">>
+					Message:<br>
+					{{ blog.blog_Message }}
+				</div>
+
+			    {% if session.logged_in %}
+
+			    <form action="{{ url_for('forums') }}" method="post">
+
+					<div class="col-md-1" style = "color:blue;font-size: 10px;">>
+						<input type="radio" name="vote" value="{{blog.sno}} upvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote">
+						<br>
+						Votes: {{ blog.blog_likes }}
+						<br>
+						<input type="radio" name="vote" value="{{blog.sno}} downvote"> <img src="https://i.redd.it/22uasph7vxvy.png" width="20" height="20" alt="upvote" style="transform: rotate(180deg);">
+						<br>
+					</div>
+
+					<div class="col-md-1" style = "color:blue;font-size: 10px;">>
+						<br><input type="submit" class="btn btn-primary">
+					</div>
+
+				</form>
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

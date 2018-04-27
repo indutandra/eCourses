@@ -2,7 +2,7 @@
 {% block body %}
 	
     {% if not session.logged_in %}
-    	<img src="\static\images\Python.jpg" style="margin-left:40px;height:150px;margin-top:-80px">
+    	<img src="\static\images\python.jpg" style="margin-left:0px;height:150px;margin-top:-80px">
     	<img src="\static\images\java.jpg" style="margin-left:50px;height:150px;margin-top:220px">
     	<img src="\static\images\learn.jpg" style="margin-left:600px;height:150px;">
     	<img src="\static\images\web.jpg" style="margin-left:900px;height:150px;">
@@ -14,11 +14,11 @@
 		</center>
 	</div>
 	<center>
-		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:70px;width:30%; text-shadow: 2px 2px 5px red;">Click here to learn courses!</button></a>
+		<a href="/courses"><button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:70px;width:30%; text-shadow: 2px 2px 5px red;font-size: 10px;">Click here to learn courses!</button></a>
 	</center>
 	{% endif %}
 
-	{% for blog in blogs_so_far %}
+	<!-- {% for blog in blogs_so_far %}
 		<div class="well" >
 
 			    {% if session.logged_in %}
@@ -42,5 +42,5 @@
 				{% endif %}
 			</div>
 		</div>
-	{% endfor %}
+	{% endfor %} -->
 {% endblock %}

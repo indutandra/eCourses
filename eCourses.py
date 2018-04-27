@@ -4,7 +4,8 @@ import json
 from sqlalchemy import Table, DateTime, desc
 import datetime
 import sys
-import datetime
+from datetime import datetime
+# from app import db
 
 app = Flask(__name__)
 
@@ -33,14 +34,13 @@ class LoginDetails(db.Model):
 class blogsDB(db.Model):
 	__tablename__ = 'blogs'
 	sno = db.Column(db.Integer, autoincrement = True, primary_key=True)
-	
 	blog_postedBy = db.Column(db.String(200))
-	blog_postedAt = db.Column(DateTime)
+	blog_postedAt = db.Column(db.DateTime)
 	blog_Title = db.Column(db.String(100))
 	blog_Message = db.Column(db.String(1000))
 	blog_likes = db.Column(db.Integer)
 
-	def __init__(self, blog_likes):
+	def __init__(self,blog_postedBy,blog_postedAt,blog_Title,blog_Message,blog_likes):
 		self.blog_postedBy = blog_postedBy
 		self.blog_postedAt = blog_postedAt
 		self.blog_Title = blog_Title
@@ -48,7 +48,7 @@ class blogsDB(db.Model):
 		self.blog_likes = blog_likes
 
 	def __repr__(self):
-		return '<Entry\nBlog Votes: %r\nPostedBy: %r\nTime: %r\nTitle: %r\nMessage: %r\n>' % (self.blog_likes, self.blog_postedBy, self.blog_postedAt, self.blog_Title, self.blog_Message)
+		return '<Entry\nposted_By: %r\ntime: %r\nTitle: %r\nMessage: %r\nlikes: %r\n>' % (self.blog_postedBy, self.blog_postedAt, self.blog_Title, self.blog_Message, self.blog_likes)
 
 db.create_all()
 
@@ -65,9 +65,38 @@ def authenticateEmail(e):
 	if(len(details)>0):
 		return False
 	return True
+
+@app.route('/postBlog', methods=['GET', 'POST'])
+def postBlog():
+	if request.method == 'POST':
+		blog_Title = request.form['blog_Title']
+		blog_Message = request.form['blog_Message']
+		blog_by = LoginDetails.query.filter_by(email=session['log_email']).all()[0].name
+		print blog_by
+		new_blog = blogsDB(blog_postedBy = blog_by,blog_postedAt=datetime.now(), blog_Title = blog_Title, blog_Message = blog_Message, blog_likes = 0)
+		db.session.add(new_blog)
+		db.session.commit()
+		blogs_so_far = reversed(blogsDB.query.all())
+		return render_template('forums.html',blogs_so_far=blogs_so_far)
+	return render_template('postBlog.html')
+
+@app.route('/forums',methods=['GET','POST'])
+def forums():
+	if request.method == 'POST':
+		(blog_sno, votetype) = (request.form['vote'].split()[0],request.form['vote'].split()[1])
+		blog = blogsDB.query.filter_by(sno = blog_sno).all()[0]
+		if votetype == "upvote":
+			blog.blog_likes+=1
+			db.session.commit()
+		elif votetype == "downvote":
+			blog.blog_likes-=1
+			db.session.commit()
+		return redirect(url_for('forums'))
+	blogs_so_far = reversed(blogsDB.query.all())
+	return render_template('forums.html', blogs_so_far = blogs_so_far)
+
 @app.route('/', methods=['GET', 'POST'])
 def Main():
-	# session.clear()
 	if request.method == 'POST':
 		(blog_sno, votetype) = (request.form['vote'].split()[0],request.form['vote'].split()[1])
 		blog = blogsDB.query.filter_by(sno = blog_sno).all()[0]
@@ -79,7 +108,6 @@ def Main():
 			db.session.commit()
 		return redirect(url_for('Main'))
 	blogs_so_far = reversed(blogsDB.query.all())
-
 	return render_template('Main.html', blogs_so_far = blogs_so_far)
 
 @app.route('/sign/<name>/<mail>')
@@ -104,7 +132,6 @@ def sign(name,mail):
 			session['logged_in'] = True
 			session['log_email'] = mail
 			return redirect(url_for('Main'))
-	# return render_template('Main.html', blogs_so_far = blogs_so_far)
 
 @app.route('/login', methods=['GET', 'POST'])
 def Login():
@@ -152,16 +179,17 @@ def signup():
 	except:
 		return render_template('signup.html', error="")
 	return render_template('signup.html', error="")
-
+	
 @app.route('/userdetails')
 def userdetails():
-	try:
+	# try:
 		if session['logged_in']==True:
+			print "session logged_in"
 			customer = LoginDetails.query.filter_by(email=session['log_email']).one()
-			return render_template('userdetails.html',customer=customer)
-		return redirect(url_for('Login'))
-	except:
-		return redirect(url_for('Login'))
+		return render_template('userdetails.html',customer=customer)
+		# return redirect(url_for('Login'))
+	# except:
+	# 	return redirect(url_for('Login'))
 
 @app.route('/courses')
 def courses():
@@ -406,18 +434,10 @@ def wp_Lesson16():
 		thispath = "wp_Lesson/1/16"
 		return render_template('wp_videos.html',customer=customer,name=x,port=c,path=thispath)
 
+
 # 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-@app.route('/forums', methods=['GET', 'POST'])
-def forums():
-	if request.method == 'POST':
-		blog_Title = request.form['blog_Title']
-		blog_Message = request.form['blog_Message']
-		blog_by = LoginDetails.quer9.filter_by(email=session['log_email']).all()[0].name
-		new_blog = blogsDB(blog_postedBy = blog_by, blog_postedAt = datetime.datetime.now(), blog_Title = blog_Title, blog_Message = blog_Message, blog_likes = 0)
-		db.session.add(new_blog)
-		db.session.commit()
-		return redirect(url_for('Main'))
-	return render_template('postBlog.html')
+
+
 
 if __name__ == '__main__':
 	app.run(port=5010)
